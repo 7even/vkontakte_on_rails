@@ -3,6 +3,6 @@ class MainController < ApplicationController
   
   def index
     vk = VkontakteApi::Client.new(session[:token])
-    @friends = vk.friends.get(fields: [:first_name, :last_name, :screen_name, :photo, :education])
+    @friends = vk.friends.get(fields: [:first_name, :last_name, :screen_name, :sex, :photo, :education, :last_seen])
   end
 end

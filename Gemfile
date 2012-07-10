@@ -5,6 +5,7 @@ gem 'rails', '3.2.6'
 gem 'sqlite3'
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
+gem 'russian'
 
 gem 'vkontakte_api', '~> 1.0.rc'
 
