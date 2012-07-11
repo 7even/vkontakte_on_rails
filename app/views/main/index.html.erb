@@ -1,17 +1,34 @@
-<h2>Друзья</h2>
-
-<table class="table">
-  <% @friends.each do |friend| %>
-    <tr>
-      <td>
-        <%= link_to image_tag(friend.photo), "http://vk.com/#{friend.screen_name}" %>
-      </td>
-      <td class="userinfo">
-        <i class="icon-user"></i>
-        <%= link_to "#{friend.first_name} #{friend.last_name}", "http://vk.com/#{friend.screen_name}" %><br />
-        
-        <%= online_status(friend) %>
-      </td>
-    </tr>
-  <% end %>
-</table>
+<div class="content">
+  <div class="row">
+    <div class="span8">
+      <h2>Новости</h2>
+      
+      <table class="table">
+        <% @newsfeed.each do |item| %>
+          <tr>
+            <td>
+              <%= image_tag avatar_for(item.source) %>
+            </td>
+            
+            <td class="wide">
+              <div class="pull-right"><%= formatted_time_for(item.date) %></div>
+              <%= link_to name_for(item.source), "http://vk.com/#{item.source.screen_name}" %>
+              
+              <p><%=raw item.text %></p>
+              
+              <% item.attachments.each do |attachment| %>
+                <%= render 'attachment', attachment: attachment %>
+              <% end if item.attachments? %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    
+    <div class="span4">
+      <div class="well sidebar-nav">
+        <%= render 'friends' %>
+      </div>
+    </div>
+  </div>
+</div>

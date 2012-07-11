@@ -1,0 +1,12 @@
+<p>
+  <% case attachment.type %>
+  <% when 'link' %>
+    <%= link_to attachment.link.title, attachment.link.url %>
+  <% when 'photo' %>
+    <%= image_tag attachment.photo.src_big %>
+  <% when 'video' %>
+    <%= image_tag attachment.video.image_big %>
+  <% end %>
+</p>
+
+<div class="clearfix"></div>

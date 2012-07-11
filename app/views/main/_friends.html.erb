@@ -1,0 +1,18 @@
+<h3>Друзья</h3>
+
+<table class="table">
+  <% @friends.each do |friend| %>
+    <tr>
+      <td>
+        <%= link_to image_tag(friend.photo), "http://vk.com/#{friend.screen_name}" %>
+      </td>
+      
+      <td class="wide">
+        <i class="icon-user"></i>
+        <%= link_to "#{friend.first_name} #{friend.last_name}", "http://vk.com/#{friend.screen_name}" %><br />
+        
+        <%= online_status(friend) %>
+      </td>
+    </tr>
+  <% end %>
+</table>
