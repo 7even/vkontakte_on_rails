@@ -14,7 +14,7 @@
               <div class="pull-right"><%= formatted_time_for(item.date) %></div>
               <%= link_to name_for(item.source), "http://vk.com/#{item.source.screen_name}" %>
               
-              <p><%=raw item.text %></p>
+              <p><%=raw render_links(item.text) %></p>
               
               <% item.attachments.each do |attachment| %>
                 <%= render 'attachment', attachment: attachment %>

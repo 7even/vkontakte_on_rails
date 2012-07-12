@@ -25,6 +25,11 @@ module MainHelper
     Russian.strftime(time, '%d %B в %H:%M')
   end
   
+  # [durov|Павел Дуров] -> <a href="http://vk.com/durov">Павел Дуров</a>
+  def render_links(text)
+    text.gsub(/\[(?<screen_name>[^|]*)\|(?<text>.*)\]/, '<a href="http://vk.com/\k<screen_name>">\k<text></a>')
+  end
+  
   def avatar_for(source)
     if source.uid?
       source.photo_medium_rec
