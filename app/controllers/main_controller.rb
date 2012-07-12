@@ -3,7 +3,13 @@ class MainController < ApplicationController
   
   def index
     vk = VkontakteApi::Client.new(session[:token])
+    
     @friends = vk.friends.get(fields: [:first_name, :last_name, :screen_name, :sex, :photo, :education, :last_seen])
+    @friends_online = @friends.select { |friend| friend.online == 1 }
+    
+    @groups = vk.groups.get(extended: 1)
+    # первый элемент массива - кол-во групп; его нужно выкинуть
+    @groups.shift
     
     raw_feed = vk.newsfeed.get(filters: 'post')
     @newsfeed = process_feed(raw_feed)

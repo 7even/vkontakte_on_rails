@@ -1,0 +1,47 @@
+<div class="well">
+  <ul class="nav nav-pills">
+    <li class="dropdown active">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        Друзья
+        <b class="caret"></b>
+      </a>
+      
+      <ul class="dropdown-menu" class="active">
+        <li class="active">
+          <a href="#friends_online" data-toggle="tab">
+            онлайн
+            <span class="badge"><%= @friends_online.count %></span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="#friends" data-toggle="tab">
+            все
+            <span class="badge"><%= @friends.count %></span>
+          </a>
+        </li>
+      </ul>
+    </li>
+    
+    <li>
+      <a href="#groups" data-toggle="tab">Группы</a>
+    </li>
+  </ul>
+  
+  <div class="tab-content">
+    <div class="tab-pane active" id="friends_online">
+      <h6>Друзья онлайн</h6>
+      <%= render 'friends', friends: @friends_online %>
+    </div>
+    
+    <div class="tab-pane" id="friends">
+      <h6>Все друзья</h6>
+      <%= render 'friends', friends: @friends %>
+    </div>
+    
+    <div class="tab-pane" id="groups">
+      <h6>Группы</h6>
+      <%= render 'groups' %>
+    </div>
+  </div>
+</div>
