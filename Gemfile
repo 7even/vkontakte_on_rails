@@ -2,7 +2,6 @@ source :rubygems
 
 gem 'rails', '3.2.6'
 
-gem 'sqlite3'
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 gem 'russian'
@@ -15,4 +14,7 @@ group :assets do
   gem 'uglifier',     '>= 1.0.3'
 end
 
-gem 'capistrano'
+group :development do
+  gem 'sqlite3'
+  gem 'heroku'
+end
