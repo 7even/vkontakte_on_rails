@@ -6,16 +6,21 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
+      
       <%= link_to 'VkontakteOnRails', root_path, class: 'brand' %>
+      
       <div class="container nav-collapse">
-        <ul class="nav">
-          <li><%= link_to 'Link1', '/path1'  %></li>
-          <li><%= link_to 'Link2', '/path2'  %></li>
-          <li><%= link_to 'Link3', '/path3'  %></li>
-        </ul>
         <% if logged_in? %>
           <ul class="nav pull-right">
-            <li><%= link_to 'Выход', logout_path, method: :delete %></li>
+            <li>
+              <%= link_to "http://vk.com/#{@user.screen_name}" do %>
+                <%= image_tag(@user.photo, width: 20) %>
+                <%= "#{@user.first_name} #{@user.last_name}" %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to 'Выход', logout_path, method: :delete %>
+            </li>
           </ul>
         <% end %>
       </div><!--/.nav-collapse -->
