@@ -20,14 +20,18 @@ module MainHelper
     end
   end
   
+  def vk_url(user)
+    "http://vk.com/#{user.screen_name}"
+  end
+  
   def formatted_time_for(timestamp)
     time = Time.at(timestamp)
     Russian.strftime(time, '%d %B в %H:%M')
   end
   
-  # [durov|Павел Дуров] -> <a href="http://vk.com/durov">Павел Дуров</a>
+  # [durov|Павел Дуров] -> <a href="http://vk.com/durov" target="_blank">Павел Дуров</a>
   def render_links(text)
-    text.gsub(/\[(?<screen_name>[^|]*)\|(?<text>.*)\]/, '<a href="http://vk.com/\k<screen_name>">\k<text></a>')
+    text.gsub(/\[(?<screen_name>[^|]*)\|(?<text>.*)\]/, '<a href="http://vk.com/\k<screen_name>" target="_blank">\k<text></a>')
   end
   
   def avatar_for(source)

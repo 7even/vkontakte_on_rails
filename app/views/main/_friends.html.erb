@@ -7,12 +7,12 @@
     <% friends.each do |friend| %>
       <tr>
         <td>
-          <%= link_to image_tag(friend.photo), "http://vk.com/#{friend.screen_name}" %>
+          <%= link_to image_tag(friend.photo), vk_url(friend), target: '_blank' %>
         </td>
         
         <td class="wide">
           <i class="icon-user"></i>
-          <%= link_to "#{friend.first_name} #{friend.last_name}", "http://vk.com/#{friend.screen_name}" %><br />
+          <%= link_to "#{friend.first_name} #{friend.last_name}", vk_url(friend), target: '_blank' %><br />
           
           <%= online_status(friend) %>
         </td>

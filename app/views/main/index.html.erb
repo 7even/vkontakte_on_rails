@@ -7,12 +7,14 @@
         <% @newsfeed.each do |item| %>
           <tr>
             <td>
-              <%= image_tag avatar_for(item.source) %>
+              <%= link_to vk_url(item.source), target: '_blank' do %>
+                <%= image_tag avatar_for(item.source) %>
+              <% end %>
             </td>
             
             <td class="wide">
               <div class="pull-right"><%= formatted_time_for(item.date) %></div>
-              <%= link_to name_for(item.source), "http://vk.com/#{item.source.screen_name}" %>
+              <%= link_to name_for(item.source), vk_url(item.source), target: '_blank' %>
               
               <p><%=raw render_links(item.text) %></p>
               

@@ -13,7 +13,7 @@
         <% if logged_in? %>
           <ul class="nav pull-right">
             <li>
-              <%= link_to "http://vk.com/#{@user.screen_name}" do %>
+              <%= link_to vk_url(@user), target: '_blank' do %>
                 <%= image_tag(@user.photo, width: 20) %>
                 <%= "#{@user.first_name} #{@user.last_name}" %>
               <% end %>

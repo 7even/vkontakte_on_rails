@@ -1,7 +1,7 @@
 <p>
   <% case attachment.type %>
   <% when 'link' %>
-    <%= link_to attachment.link.title, attachment.link.url %>
+    <%= link_to attachment.link.title, attachment.link.url, target: '_blank' %>
   <% when 'photo' %>
     <%= image_tag attachment.photo.src_big %>
   <% when 'video' %>
