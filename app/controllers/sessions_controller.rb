@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def new
-    @vk_url = VkontakteApi.authorization_url(scope: [:friends, :groups])
+    @vk_url = VkontakteApi.authorization_url(scope: [:friends, :groups, :offline])
   end
   
   def callback
