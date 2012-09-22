@@ -6,7 +6,7 @@ class MainController < ApplicationController
     @user = vk.users.get(uid: session[:vk_id], fields: [:screen_name, :photo]).first
     
     # друзья
-    @friends = vk.friends.get(fields: [:first_name, :last_name, :screen_name, :sex, :photo, :education, :last_seen])
+    @friends = vk.friends.get(fields: [:screen_name, :sex, :photo, :last_seen])
     @friends_online = @friends.select { |friend| friend.online == 1 }
     
     # группы
